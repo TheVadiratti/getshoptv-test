@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useCallback, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Button from '@/shared/components/button/button';
 import Styles from './banner-qr.module.css';
@@ -10,9 +11,11 @@ interface Props {
 }
 
 const BannerQr = memo(({ extraClass }: Props) => {
+  const router = useRouter();
+
   const handleOkClick = useCallback(() => {
-    console.log('pressed');
-  }, []);
+    router.push('/appointment');
+  }, [router]);
 
   const classNames = useMemo(() => {
     const classes = [Styles.banner];
