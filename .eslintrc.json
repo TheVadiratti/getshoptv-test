@@ -23,6 +23,7 @@
         "parser": "flow"
       }
     ],
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "jsx-a11y/media-has-caption": "off"
   }
 }

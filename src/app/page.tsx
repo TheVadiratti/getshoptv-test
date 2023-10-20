@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import BannerQr from '@/widgets/banner-qr';
 import Styles from './page.module.css';
 
