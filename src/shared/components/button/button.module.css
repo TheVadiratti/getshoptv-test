@@ -1,0 +1,21 @@
+.button {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 2px solid var(--black);
+  color: var(--black);
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: var(--m-font-size);
+  font-weight: var(--semi-bold-font);
+}
+
+.button:focus {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.button:disabled {
+  border: 1px solid var(--black-disabled);
+  color: var(--black-disabled);
+}
