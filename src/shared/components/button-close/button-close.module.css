@@ -1,0 +1,27 @@
+.button {
+  width: 88px;
+  height: 52px;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 2px solid var(--black);
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:focus {
+  background-color: var(--black);
+}
+
+.button:focus > svg > g > line {
+  stroke: var(--white);
+}
+
+.button:disabled {
+  border: 1px solid var(--black-disabled);
+}
