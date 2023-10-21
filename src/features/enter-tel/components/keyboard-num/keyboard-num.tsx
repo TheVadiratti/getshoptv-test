@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-no-bind */
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import Button from '@/shared/components/button/button';
 import { deleteLastSymb } from '@/shared/lib/helpers/string';
+import { isNumberKey } from '@/shared/lib/helpers/keyboard';
 import { MAX_LENGTH_INPUT_NUMBER } from '../../consts/number';
 import Styles from './keyboard-num.module.css';
 
@@ -11,6 +12,32 @@ interface Props {
 }
 
 const KeyboardNum = memo(({ setNumberValue }: Props) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const { code } = e;
+      // если нажатая клавиша относится к числовым
+      if (isNumberKey(e)) {
+        setNumberValue((prev) => {
+          // проверка что цифр набрано меньше чем можно
+          if (prev.length < MAX_LENGTH_INPUT_NUMBER)
+            // вставляем в номер последний символ кода клавиши (всегда её цифра)
+            return prev + code[code.length - 1];
+          // иначе просто возвращаем предыдущее состояние
+          return prev;
+        });
+      }
+      // если нажали 'Backspace' - удаляем последний символ
+      if (code === 'Backspace') {
+        setNumberValue((prev) => deleteLastSymb(prev));
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [setNumberValue]);
+
   const handleClickButton = useCallback(
     (number: number | '-') => {
       if (number === '-') {
@@ -18,7 +45,7 @@ const KeyboardNum = memo(({ setNumberValue }: Props) => {
         setNumberValue((prev) => deleteLastSymb(prev));
       } else {
         setNumberValue((prev) => {
-          // если цифр набрано меньше допустимого, то можно набирать еще
+          // проверка что цифр набрано меньше чем можно
           if (prev.length < MAX_LENGTH_INPUT_NUMBER)
             return prev + String(number);
           // иначе просто возвращаем предыдущее состояние
