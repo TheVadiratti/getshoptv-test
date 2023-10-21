@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/button-has-type */
 import { memo, useMemo } from 'react';
 import Styles from './button.module.css';
@@ -6,11 +7,18 @@ interface Props {
   type?: 'button' | 'submit' | 'reset';
   label: string;
   onClick?: VoidFunction;
+  autoFocus?: boolean;
   extraClass?: string;
 }
 
 const Button = memo(
-  ({ type = 'button', label, onClick, extraClass }: Props) => {
+  ({
+    type = 'button',
+    label,
+    onClick,
+    autoFocus = false,
+    extraClass,
+  }: Props) => {
     const classNames = useMemo(() => {
       const classes = [Styles.button];
 
@@ -22,7 +30,12 @@ const Button = memo(
     }, [extraClass]);
 
     return (
-      <button className={classNames.join(' ')} type={type} onClick={onClick}>
+      <button
+        className={classNames.join(' ')}
+        type={type}
+        onClick={onClick}
+        autoFocus={autoFocus}
+      >
         {label}
       </button>
     );
