@@ -8,6 +8,7 @@ interface Props {
   label: string;
   onClick?: VoidFunction;
   autoFocus?: boolean;
+  disabled?: boolean;
   extraClass?: string;
 }
 
@@ -17,6 +18,7 @@ const Button = memo(
     label,
     onClick,
     autoFocus = false,
+    disabled,
     extraClass,
   }: Props) => {
     const classNames = useMemo(() => {
@@ -35,6 +37,7 @@ const Button = memo(
         type={type}
         onClick={onClick}
         autoFocus={autoFocus}
+        disabled={disabled}
       >
         {label}
       </button>
