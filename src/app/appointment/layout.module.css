@@ -1,0 +1,38 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.overlay {
+  flex-grow: 1;
+  height: 100%;
+  background-image: url(/images/boy-and-pet.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.qrCnt {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+
+.hint {
+  width: 194px;
+  text-align: end;
+  text-transform: uppercase;
+  font-size: var(--m-font-size);
+  font-weight: var(--semi-bold-font);
+  color: var(--white);
+}
