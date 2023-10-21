@@ -1,0 +1,42 @@
+.panel {
+  width: 380px;
+  padding: 72px 48px;
+  box-sizing: border-box;
+  background-color: var(--blue-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+
+.heading {
+  width: 272px;
+  margin: 0;
+  text-align: center;
+  font-size: var(--l-font-size);
+  font-weight: var(--regular-font);
+}
+
+.number {
+  font-size: var(--xl-font-size);
+  font-weight: var(--bold-font);
+}
+
+.hint {
+  text-align: center;
+  font-size: var(--s-font-size);
+}
+
+.checkboxCnt {
+  width: 100%;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdaHint {
+  width: 214px;
+  font-size: var(--s-font-size);
+  color: var(--black-disabled);
+}
