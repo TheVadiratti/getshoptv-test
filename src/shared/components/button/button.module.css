@@ -17,6 +17,7 @@
 .button:focus {
   color: var(--white);
   background-color: var(--black);
+  outline: none;
 }
 
 .button:disabled {

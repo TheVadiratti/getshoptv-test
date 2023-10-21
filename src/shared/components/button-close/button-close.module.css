@@ -16,6 +16,7 @@
 
 .button:focus {
   background-color: var(--black);
+  outline: none;
 }
 
 .button:focus > svg > g > line {
