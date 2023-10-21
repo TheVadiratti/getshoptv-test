@@ -1,0 +1,23 @@
+.panel {
+  width: 332px;
+  padding: 72px 48px;
+  background-color: var(--blue-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.heading {
+  margin: 0;
+  text-align: center;
+  font-size: var(--xl-font-size);
+  font-weight: var(--bold-font);
+  text-transform: uppercase;
+}
+
+.hint {
+  text-align: center;
+  font-size: var(--s-font-size);
+}
