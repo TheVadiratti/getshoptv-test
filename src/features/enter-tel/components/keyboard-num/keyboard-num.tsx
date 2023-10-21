@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-no-bind */
 import { memo, useCallback } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
