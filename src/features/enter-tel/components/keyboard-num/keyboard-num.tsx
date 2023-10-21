@@ -2,6 +2,7 @@
 import { memo, useCallback } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import Button from '@/shared/components/button/button';
+import { deleteLastSymb } from '@/shared/lib/helpers/string';
 import { MAX_LENGTH_INPUT_NUMBER } from '../../consts/number';
 import Styles from './keyboard-num.module.css';
 
@@ -14,7 +15,7 @@ const KeyboardNum = memo(({ setNumberValue }: Props) => {
     (number: number | '-') => {
       if (number === '-') {
         // если нажали 'стереть' (код '-') - удаляем последний символ
-        setNumberValue((prev) => prev.substring(0, prev.length - 1));
+        setNumberValue((prev) => deleteLastSymb(prev));
       } else {
         setNumberValue((prev) => {
           // если цифр набрано меньше допустимого, то можно набирать еще
