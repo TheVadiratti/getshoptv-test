@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useCallback, useMemo, useState, useContext } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from '@/shared/components/button/button';
 import KeyboardNum, { MAX_LENGTH_INPUT_NUMBER } from '@/features/enter-tel';
 import useNumberMask from '@/shared/lib/hooks/useNumberMask';
@@ -13,6 +14,7 @@ const PanelEnterTel = memo(() => {
   const [checkboxValue, setCheckboxValue] = useState(false);
   const number = useNumberMask(numberValue);
   const focusContext = useContext(FocusContext);
+  const router = useRouter();
 
   const handlePDA = useCallback(() => {
     setCheckboxValue(!checkboxValue);
@@ -22,6 +24,11 @@ const PanelEnterTel = memo(() => {
     () => checkboxValue && numberValue.length === MAX_LENGTH_INPUT_NUMBER,
     [checkboxValue, numberValue],
   );
+
+  const handleConfirmTel = useCallback(() => {
+    // используется именно replace, т.к. в данном случае нам не нужно добавлять URL в историю
+    router.replace('/appointment/success');
+  }, [router]);
 
   return (
     <div className={Styles.panel}>
@@ -55,6 +62,7 @@ const PanelEnterTel = memo(() => {
             label="Подтвердить номер"
             disabled={!isValidNumber}
             isFocus={focusContext.currFocus === 13 && isValidNumber}
+            onClick={handleConfirmTel}
           />
         </>
       )}
