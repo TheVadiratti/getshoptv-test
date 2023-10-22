@@ -22,6 +22,10 @@
   font-weight: var(--bold-font);
 }
 
+.numberError {
+  color: var(--red-error);
+}
+
 .hint {
   text-align: center;
   font-size: var(--s-font-size);
@@ -29,6 +33,7 @@
 
 .checkboxCnt {
   width: 100%;
+  min-height: 52px;
   padding-left: 10px;
   display: flex;
   align-items: center;
@@ -39,4 +44,12 @@
   width: 214px;
   font-size: var(--s-font-size);
   color: var(--black-disabled);
+}
+
+.error {
+  width: 100%;
+  color: var(--red-error);
+  font-weight: var(--semi-bold-font);
+  text-transform: uppercase;
+  text-align: center;
 }
