@@ -43,7 +43,12 @@ const BannerQr = memo(({ extraClass }: Props) => {
         />
         <p className={Styles.hint}>Сканируйте QR-код или нажмите ОК</p>
       </div>
-      <Button label="ok" onClick={handleOkClick} extraClass={Styles.button} />
+      <Button
+        label="ok"
+        onClick={handleOkClick}
+        extraClass={Styles.button}
+        autoFocus
+      />
     </div>
   );
 });
