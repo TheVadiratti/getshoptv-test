@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/button-has-type */
-import { memo, useRef, useEffect, useMemo } from 'react';
+import { memo, useRef, useEffect, useMemo, ReactNode } from 'react';
 import Styles from './button.module.css';
 
 interface Props {
   type?: 'button' | 'submit' | 'reset';
-  label: string;
+  label: string | ReactNode;
   onClick?: VoidFunction;
   autoFocus?: boolean;
   disabled?: boolean;

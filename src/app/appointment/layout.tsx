@@ -4,7 +4,8 @@ import { useState, useCallback, createContext, useMemo } from 'react';
 import type { ReactNode, Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import ButtonClose from '@/shared/components/button-close/button-close';
+import Button from '@/shared/components/button/button';
+import CloseIcon from '@/shared/assets/icons/Close';
 import Styles from './layout.module.css';
 
 export const FocusContext = createContext<{
@@ -29,7 +30,8 @@ function AppointmentLayout({ children }: { children: ReactNode }) {
         {children}
       </FocusContext.Provider>
       <div className={Styles.overlay}>
-        <ButtonClose
+        <Button
+          label={CloseIcon()}
           extraClass={Styles.closeButton}
           onClick={handleCloseButton}
           isFocus={currFocus === 14}

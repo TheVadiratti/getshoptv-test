@@ -13,9 +13,17 @@
 }
 
 .closeButton {
+  width: 88px;
+  height: 52px;
+  padding: 0;
+  background-color: var(--white);
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.closeButton:focus > svg > g > line {
+  stroke: var(--white);
 }
 
 .qrCnt {
