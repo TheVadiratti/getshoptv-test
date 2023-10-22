@@ -9,9 +9,10 @@ import Styles from './keyboard-num.module.css';
 
 interface Props {
   setNumberValue: Dispatch<SetStateAction<string>>;
+  currFocus?: number;
 }
 
-const KeyboardNum = memo(({ setNumberValue }: Props) => {
+const KeyboardNum = memo(({ setNumberValue, currFocus }: Props) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const { code } = e;
@@ -58,21 +59,62 @@ const KeyboardNum = memo(({ setNumberValue }: Props) => {
 
   return (
     <div className={Styles.keyboard}>
-      <Button label="1" onClick={handleClickButton.bind(null, 1)} autoFocus />
-      <Button label="2" onClick={handleClickButton.bind(null, 2)} />
-      <Button label="3" onClick={handleClickButton.bind(null, 3)} />
-      <Button label="4" onClick={handleClickButton.bind(null, 4)} />
-      <Button label="5" onClick={handleClickButton.bind(null, 5)} />
-      <Button label="6" onClick={handleClickButton.bind(null, 6)} />
-      <Button label="7" onClick={handleClickButton.bind(null, 7)} />
-      <Button label="8" onClick={handleClickButton.bind(null, 8)} />
-      <Button label="9" onClick={handleClickButton.bind(null, 9)} />
+      <Button
+        label="1"
+        onClick={handleClickButton.bind(null, 1)}
+        isFocus={currFocus === 1}
+      />
+      <Button
+        label="2"
+        onClick={handleClickButton.bind(null, 2)}
+        isFocus={currFocus === 2}
+      />
+      <Button
+        label="3"
+        onClick={handleClickButton.bind(null, 3)}
+        isFocus={currFocus === 3}
+      />
+      <Button
+        label="4"
+        onClick={handleClickButton.bind(null, 4)}
+        isFocus={currFocus === 4}
+      />
+      <Button
+        label="5"
+        onClick={handleClickButton.bind(null, 5)}
+        isFocus={currFocus === 5}
+      />
+      <Button
+        label="6"
+        onClick={handleClickButton.bind(null, 6)}
+        isFocus={currFocus === 6}
+      />
+      <Button
+        label="7"
+        onClick={handleClickButton.bind(null, 7)}
+        isFocus={currFocus === 7}
+      />
+      <Button
+        label="8"
+        onClick={handleClickButton.bind(null, 8)}
+        isFocus={currFocus === 8}
+      />
+      <Button
+        label="9"
+        onClick={handleClickButton.bind(null, 9)}
+        isFocus={currFocus === 9}
+      />
       <Button
         extraClass={Styles.buttonDelete}
         label="cтереть"
         onClick={handleClickButton.bind(null, '-')}
+        isFocus={currFocus === 10}
       />
-      <Button label="0" onClick={handleClickButton.bind(null, 0)} />
+      <Button
+        label="0"
+        onClick={handleClickButton.bind(null, 0)}
+        isFocus={currFocus === 11}
+      />
     </div>
   );
 });
