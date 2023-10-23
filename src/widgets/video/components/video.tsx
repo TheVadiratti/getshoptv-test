@@ -31,6 +31,7 @@ const Video = memo(() => {
       autoPlay
       loop
       muted
+      preload="auto"
       onTimeUpdate={handleTimeUpdate}
     />
   );
