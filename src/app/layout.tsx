@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
-import './Styles/index.css';
+import '../common/styles/index.css';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' });
 
