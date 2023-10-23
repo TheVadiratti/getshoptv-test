@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Запуск проекта
 
-## Getting Started
+- Клонировать репозиторий ```git clone```
+- Установить зависимости ```npm install```
+- Собрать проект ```npm run build```
+- Запустить проект ```npm run start```
 
-First, run the development server:
+# Задание для Junior Frontend Developer
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+В качестве тестового задания необходимо создать упрощенную демо-версию микросайта для SmartTV. Посмотреть пример работы механики можно здесь.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Микросайт состоит из серии экранов:  
+- промо-видео с баннером (верстать не обязательно)
+- экран ввода номера (с экранной клавиатурой)
+- финальный инфо-экран
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Необходимо реализовать вёрстку экранов микросайта, а также навигацию и механизм ввода номера при помощи экранной клавиатуры. Кнопка «Подтвердить номер» должна становиться доступной для выбора (enabled) только при полностью введенном номере и согласии с обработкой ПД. Валидацию номера проводить не нужно, достаточно проверять, что номер введен полностью.
+Неинтерактивные статичные элементы (включая текст) разрешается не верстать, а использовать как часть (фоновой) картинки. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+Для первого экрана добавить видео (отрывок около минуты длиной, к примеру отсюда) и баннер, появляющийся через 5 секунд от начала проигрывания ролика.
 
-To learn more about Next.js, take a look at the following resources:
+Навигация должна осуществляться также и с клавиатуры:
+стрелки для навигации между кнопками (включая кнопки “закрыть”, “подтвердить”);
+цифры и BACKSPACE для быстрого ввода номера;
+ENTER для выбора кнопки;
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Требования:
+Используйте React (использование TypeScript будет плюсом)
+Если сочтете нужным, можете использовать сторонние библиотеки.
+Разрешение микросайта фиксированное, 1280х720.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+На выходе ожидается:
+Ссылка на github/gitlab с осмысленной историей коммитов
+Ссылка на развернутую версию микросайта
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Бонусные задания:
+Переход из экрана с видео и баннером должен паузить видео. Переход обратно должен продолжать воспроизведение.
+добавить валидацию номера при помощи открытого сервиса (например, https://numverify.com/documentation).
+На экране с микросайтом добавьте таймер закрытия по бездействию, что интерактив закрывается, если пользователь ничего не делает 10 секунд. Происходит переход на промо-видео с баннером
