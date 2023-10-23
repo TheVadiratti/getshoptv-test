@@ -1,7 +1,7 @@
-import PanelSuccessAppointment from '@/widgets/panel-success-appointment';
+import AppointmentSuccessPage from '@/routes/appointment-success';
 
 function SuccessAppointment() {
-  return <PanelSuccessAppointment />;
+  return <AppointmentSuccessPage />;
 }
 
 export default SuccessAppointment;

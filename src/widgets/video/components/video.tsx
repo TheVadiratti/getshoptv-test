@@ -1,3 +1,5 @@
+'use client';
+
 import { memo, useCallback, useRef, useEffect } from 'react';
 import Styles from './video.module.css';
 

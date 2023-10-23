@@ -15,7 +15,7 @@ import Button from '@/shared/components/button/button';
 import KeyboardNum, { MAX_LENGTH_INPUT_NUMBER } from '@/features/enter-tel';
 import useNumberMask from '@/shared/lib/hooks/useNumberMask';
 import Checkbox from '@/shared/components/checkbox/checkbox';
-import { FocusContext } from '@/app/appointment/layout';
+import { FocusContext } from '@/routes/appointment';
 import validateTel from '../api/validateTel';
 import Styles from './panel-enter-tel.module.css';
 

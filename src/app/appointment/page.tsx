@@ -1,29 +1,7 @@
-'use client';
-
-import { useEffect, useContext } from 'react';
-import PanelEnterTel from '@/widgets/panel-enter-tel';
-import { appoinmentPageFocusController } from '@/features/keyboard-navigate';
-import { FocusContext } from './layout';
+import { AppointmentPage } from '@/routes/appointment';
 
 function Appointment() {
-  const focusState = useContext(FocusContext);
-
-  useEffect(() => {
-    const handleNavKey = (e: KeyboardEvent) => {
-      if (focusState) {
-        const { currFocus, setCurrFocus } = focusState;
-        appoinmentPageFocusController(currFocus, setCurrFocus, e.key);
-      }
-    };
-
-    document.addEventListener('keydown', handleNavKey);
-
-    return () => {
-      document.removeEventListener('keydown', handleNavKey);
-    };
-  }, [focusState]);
-
-  return <PanelEnterTel />;
+  return <AppointmentPage />;
 }
 
 export default Appointment;
