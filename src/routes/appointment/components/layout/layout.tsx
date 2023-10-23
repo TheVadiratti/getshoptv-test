@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import CloseIcon from '@/shared/assets/icons/Close';
 import Button from '@/shared/components/button/button';
+import useUserInactivity from '@/shared/lib/hooks/useUserInactivity';
 import FocusContext from '../../model/context/focus';
 import Styles from './layout.module.css';
 
@@ -15,10 +16,19 @@ interface Props {
 
 const AppointmentLayout = memo(({ children }: Props) => {
   const [currFocus, setCurrFocus] = useState(1);
+  const router = useRouter();
+  const onUserInactivity = useCallback(() => {
+    router.replace('/');
+  }, [router]);
+
+  // отслеживание бездействия пользователя
+  useUserInactivity({
+    target: document,
+    inactiveCallback: onUserInactivity,
+    delay: 5000,
+  });
 
   const focusState = useMemo(() => ({ currFocus, setCurrFocus }), [currFocus]);
-
-  const router = useRouter();
 
   const handleCloseButton = useCallback(() => {
     router.push('/');
