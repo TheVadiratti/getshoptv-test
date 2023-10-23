@@ -1,7 +1,7 @@
 import { useRef, useCallback, useEffect } from 'react';
 
 interface Params {
-  target: Document | Element; // элемент на который вешаются слушатели
+  target?: Element; // элемент на который вешаются слушатели
   inactiveCallback: VoidFunction; // колбэк срабатывающий при неактивности
   delay: number; // время ожидания при бездействии
 }
@@ -21,10 +21,11 @@ const useUserInactivity = ({ target, inactiveCallback, delay }: Params) => {
 
   const setDeleteListener = useCallback(
     (event: string) => {
-      target.addEventListener(event, defer);
+      const targetEl = target || document;
+      targetEl.addEventListener(event, defer);
 
       return () => {
-        target.removeEventListener(event, defer);
+        targetEl.removeEventListener(event, defer);
       };
     },
     [defer, target],

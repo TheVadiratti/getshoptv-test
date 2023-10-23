@@ -23,7 +23,6 @@ const AppointmentLayout = memo(({ children }: Props) => {
 
   // отслеживание бездействия пользователя
   useUserInactivity({
-    target: document,
     inactiveCallback: onUserInactivity,
     delay: 5000,
   });
