@@ -44,10 +44,13 @@ const PanelEnterTel = memo(() => {
     setCheckboxValue(!checkboxValue);
   }, [checkboxValue]);
 
-  const isValidNumber = useMemo(
+  const isConfirmBtnAvailable = useMemo(
     () =>
+      // есть согласие на обработку ПД
       checkboxValue &&
+      // корректная длина номера
       numberValue.length === MAX_LENGTH_INPUT_NUMBER &&
+      // отсутствует ошибка валидации
       !errorMessage,
     [checkboxValue, numberValue, errorMessage],
   );
@@ -110,8 +113,8 @@ const PanelEnterTel = memo(() => {
           </div>
           <Button
             label="Подтвердить номер"
-            disabled={!isValidNumber}
-            isFocus={focusContext.currFocus === 13 && isValidNumber}
+            disabled={!isConfirmBtnAvailable}
+            isFocus={focusContext.currFocus === 13 && isConfirmBtnAvailable}
             onClick={handleConfirmTel}
           />
         </>
