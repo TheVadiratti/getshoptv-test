@@ -1,5 +1,3 @@
-/* eslint-disable prefer-promise-reject-errors */
-
 'use client';
 
 import {
