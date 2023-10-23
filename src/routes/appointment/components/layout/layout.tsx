@@ -54,6 +54,8 @@ const AppointmentLayout = memo(({ children }: Props) => {
             width={110}
             height={110}
             alt="QR код"
+            placeholder="blur"
+            priority
           />
         </div>
       </div>
