@@ -16,7 +16,7 @@ import KeyboardNum, { MAX_LENGTH_INPUT_NUMBER } from '@/features/enter-tel';
 import useNumberMask from '@/shared/lib/hooks/useNumberMask';
 import Checkbox from '@/shared/components/checkbox/checkbox';
 import { FocusContext } from '@/routes/appointment';
-import validateTel from '../api/validateTel';
+import validateTel from '@/features/validate-tel';
 import Styles from './panel-enter-tel.module.css';
 
 const PanelEnterTel = memo(() => {
@@ -52,21 +52,21 @@ const PanelEnterTel = memo(() => {
     [checkboxValue, numberValue, errorMessage],
   );
 
-  const handleConfirmTel = useCallback(() => {
-    validateTel(numberValue)
-      // eslint-disable-next-line consistent-return
-      .then((res) => {
-        if (res.valid) {
-          // используется именно replace, т.к. в данном случае нам не нужно добавлять URL в историю
-          router.replace('/appointment/success');
-        } else {
-          return Promise.reject('Неверно введён номер');
-        }
-      })
-      .catch((err) => {
-        // устанавливаем текст ошибки
-        setErrorMessage(err);
-      });
+  const handleConfirmTel = useCallback(async () => {
+    const { isSuccess, isValid, message } = await validateTel(numberValue);
+
+    if (isSuccess) {
+      if (isValid) {
+        // используется именно replace, т.к. в данном случае нам не нужно добавлять URL в историю
+        router.replace('/appointment/success');
+      } else {
+        // устанавливаем текст ошибки валидации
+        setErrorMessage(message);
+      }
+    } else {
+      // устанавливаем текст ошибки запроса
+      setErrorMessage(message);
+    }
   }, [router, numberValue]);
 
   return (
